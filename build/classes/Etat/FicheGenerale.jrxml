@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\jkl\\Logiciel\\java\\jordie\\mes application java\\GsStandar\\src\\Etat\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Date1" class="java.lang.String"/>
+	<parameter name="Date2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select t_article.design,t_mvmstock.dateentrer,t_entrer.QteEntrer,t_entrer.PrixUnitaire, t_entrer.QteEntrer * t_entrer.PrixUnitaire,t_sortie.QteSortie,t_sortie.PrixUnitaire,t_sortie.QteSortie * t_sortie.PrixUnitaire,t_mvmstock.qte,t_mvmstock.pu,t_mvmstock.qte * t_mvmstock.pu from t_article,t_entrer,t_sortie,t_mvmstock where t_article.refart=t_entrer.refart and t_article.refart=t_sortie.refart and t_article.refart=t_mvmstock.refart and t_entrer.refart=t_mvmstock.refart and t_sortie.refart=t_mvmstock.refart and (t_entrer.DateEntrer=t_sortie.DateSortie or t_mvmstock.dateentrer=t_sortie.DateSortie or t_entrer.DateEntrer=t_mvmstock.dateentrer)  and (t_entrer.DateEntrer between $P{Date1} and $P{Date2}) and (t_sortie.DateSortie between $P{Date1} and $P{Date2}) and (t_mvmstock.dateentrer between $P{Date1} and $P{Date2})]]>
+	</queryString>
+	<field name="design" class="java.lang.String"/>
+	<field name="dateentrer" class="java.sql.Date"/>
+	<field name="QteEntrer" class="java.math.BigDecimal"/>
+	<field name="PrixUnitaire" class="java.math.BigDecimal"/>
+	<field name="t_entrer.QteEntrer * t_entrer.PrixUnitaire" class="java.math.BigDecimal"/>
+	<field name="QteSortie" class="java.math.BigDecimal"/>
+	<field name="t_sortie.QteSortie * t_sortie.PrixUnitaire" class="java.math.BigDecimal"/>
+	<field name="qte" class="java.lang.Double"/>
+	<field name="pu" class="java.lang.Double"/>
+	<field name="t_mvmstock.qte * t_mvmstock.pu" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="192" splitType="Stretch">
+			<subreport>
+				<reportElement x="135" y="0" width="530" height="141"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Entete_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="266" y="159" width="109" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Fiche de stock du]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="375" y="159" width="71" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Date1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="159" width="100" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Date2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="443" y="159" width="17" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[au]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="181" y="20" width="58" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Qte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="239" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[PU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="311" y="20" width="73" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[PT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="384" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Qte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="454" y="20" width="132" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[PT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="586" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Qte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="658" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[PU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="730" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[PT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="99" y="0" width="83" height="44" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Désignation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="182" y="0" width="202" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Entrée]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="384" y="0" width="202" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Sortie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="586" y="0" width="216" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Stock]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="99" y="0" width="83" height="44" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="182" y="0" width="202" height="20" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="182" y="20" width="57" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="239" y="20" width="73" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="312" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="384" y="0" width="202" height="20" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="384" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="456" y="20" width="130" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="586" y="0" width="216" height="20" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="586" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="658" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="730" y="20" width="72" height="24" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="99" height="44" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="99" height="44"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="99" y="0" width="83" height="61"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{design}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="0" width="57" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{QteEntrer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="0" width="73" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PrixUnitaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="72" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_entrer.QteEntrer * t_entrer.PrixUnitaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="72" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{QteSortie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="0" width="130" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_sortie.QteSortie * t_sortie.PrixUnitaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="586" y="0" width="72" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="658" y="0" width="72" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="730" y="0" width="72" height="61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{t_mvmstock.qte * t_mvmstock.pu}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="730" y="0" width="72" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="658" y="0" width="72" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="586" y="0" width="72" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="456" y="0" width="130" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="384" y="0" width="72" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="312" y="0" width="72" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="239" y="0" width="73" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="182" y="0" width="57" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="99" y="0" width="83" height="61" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="99" height="61"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateentrer}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="99" height="61"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="653" y="9" width="41" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Fait le]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="694" y="9" width="100" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

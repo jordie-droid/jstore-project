@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Entete_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from t_jstore]]>
+	</queryString>
+	<field name="RaisSoc" class="java.lang.String"/>
+	<field name="StatJuri" class="java.lang.String"/>
+	<field name="Adresse" class="java.lang.String"/>
+	<field name="Tele" class="java.lang.String"/>
+	<field name="Email" class="java.lang.String"/>
+	<field name="Logo" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="122" splitType="Stretch">
+			<textField>
+				<reportElement x="123" y="12" width="286" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RaisSoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="32" width="286" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{StatJuri}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="52" width="286" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Adresse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="72" width="286" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tele}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="92" width="286" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Email}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="457" y="21" width="82" height="80"/>
+				<imageExpression><![CDATA[$F{Logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="16" y="12" width="107" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Raison sociale :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="52" width="107" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Adresse :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="32" width="107" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Statut juridique :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="72" width="107" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Téléphone :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="92" width="107" height="20"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[E-mail :]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

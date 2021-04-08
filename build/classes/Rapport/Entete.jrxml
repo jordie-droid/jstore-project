@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Entete" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e5fda265-44e4-4b7e-b7b9-ad17520bd727">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from t_jstore]]>
+	</queryString>
+	<field name="RaisSoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="StatJuri" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Adresse" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tele" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Logo" class="java.io.InputStream">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="138" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4b801327-7dbc-412f-92ec-0db97a598c41" x="18" y="20" width="222" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RaisSoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="97fe7084-8b19-4993-bb16-389ed84c0152" x="18" y="40" width="222" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{StatJuri}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1e62a627-189c-48d6-990f-286f0cba559c" x="18" y="60" width="222" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Adresse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="44ebb0c3-7bf5-4c3a-a726-51815e9b5e97" x="18" y="80" width="222" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tele}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d9b8b1d8-ab59-4436-ac45-fa626b6ccdfa" x="18" y="100" width="222" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Email}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="09b9313c-627c-4230-88e3-7adef4825394" x="426" y="20" width="112" height="100"/>
+				<imageExpression><![CDATA[$F{Logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

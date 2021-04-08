@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EntDeuxDate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="709eb8fa-e41c-4aeb-af61-a9b371cf75c5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\jkl\\Logiciel\\java\\jordie\\mes application java\\JStore\\src\\Rapport\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Date1" class="java.lang.String"/>
+	<parameter name="Date2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select t_entrer.numstock,t_entrer.QteEntrer,t_entrer.PrixUnitaire,t_fourn.nomsfour,t_article.design from t_entrer,t_article,t_fourn where t_article.refart=t_entrer.refart and t_fourn.reffour=t_entrer.reffour and t_entrer.DateEntrer between $P{Date1} and $P{Date2} order by t_entrer.numstock]]>
+	</queryString>
+	<field name="numstock" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="QteEntrer" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PrixUnitaire" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomsfour" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="design" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="134" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="375acb46-f849-4b9d-817b-039d9dc77dc7" x="0" y="0" width="555" height="134"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Entete.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="aff437d5-06e7-497d-b2a3-6c24e224b5ba" x="144" y="10" width="111" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Rapport d'entrer du]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="420a9ae2-a886-46ae-b78d-6859dd4e310b" x="255" y="10" width="70" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Date1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f2a2c9a2-9a09-473a-a39a-bbd595009fe0" x="325" y="10" width="17" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[au]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="c093c84e-b0bf-4bf3-8f68-69a98ac14676" x="342" y="10" width="83" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Date2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="397f84c6-9047-4f65-85b6-be3c93fe0013" mode="Opaque" x="0" y="0" width="51" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bfa3200d-a290-4560-b1be-084e5ee8cc19" mode="Opaque" x="196" y="0" width="137" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Noms fournisseur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ab48df8-5c22-47bd-aadd-16fba1ca813b" mode="Opaque" x="51" y="0" width="145" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Désignation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9ce8b214-6e1e-4f3a-b759-75959eba1202" mode="Opaque" x="444" y="0" width="111" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Prix unitaire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fca7fec9-b0f3-47df-b350-e1c103749da8" mode="Opaque" x="333" y="0" width="111" height="20" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Quantité]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="799be528-4e53-450b-96a9-65316a2ffac9" mode="Transparent" x="0" y="0" width="51" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="bad1bd2b-a823-466d-be87-3890e0becb00" mode="Transparent" x="51" y="0" width="145" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e0474ca2-3675-4217-8b26-d71b8d76fb79" mode="Transparent" x="196" y="0" width="137" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="bf0d523f-a9a0-4b9c-8932-3c2077ce786b" mode="Transparent" x="333" y="0" width="111" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="99f0198e-8569-49df-b7f2-cde77ae6f351" mode="Transparent" x="444" y="0" width="111" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement uuid="aa3f8c6d-56ad-4fd1-bc7a-cde43a86549a" x="0" y="0" width="51" height="47"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numstock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3e09f951-c283-4d79-a50b-ea66fd36d46a" x="333" y="0" width="111" height="47"/>
+				<textElement textAlignment="Right">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{QteEntrer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c48b2bd5-c690-4fb3-9068-d2f2a7f3452d" x="444" y="0" width="111" height="47"/>
+				<textElement textAlignment="Right">
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PrixUnitaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d6c7f732-52c2-4d6b-8e16-143535dcc9dc" x="196" y="0" width="137" height="47"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomsfour}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="27885621-c96d-4eb1-874f-496a36468f03" x="51" y="0" width="145" height="47"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{design}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="382fdfa8-016c-407e-9976-3a0bd7420bba" mode="Transparent" x="0" y="0" width="51" height="47"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="3d614684-6acb-480c-a619-a5f0fc00d1f9" mode="Transparent" x="51" y="0" width="145" height="47"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6a5a46b3-7e1f-40c9-9d31-7722a4ac0a9a" mode="Transparent" x="196" y="0" width="137" height="47"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="19bee24b-04d9-42c7-8097-39cf08e885a6" mode="Transparent" x="333" y="0" width="111" height="47"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ed369090-c188-43ff-96cb-ebacd922f84b" mode="Transparent" x="444" y="0" width="111" height="47"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ac33ee9b-5c94-4d80-954c-0cf9062c1d5b" x="401" y="10" width="36" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[Fait le]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="e6c236bb-bad3-4d7c-af94-29cc83a45ae9" x="437" y="10" width="100" height="20"/>
+				<textElement>
+					<font fontName="Microsoft Sans Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
